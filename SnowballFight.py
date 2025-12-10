@@ -119,15 +119,36 @@ def playSnowballFight(players):
         victim = getVictim(players, thrower)
         hitResult = getHitResult()
 
+
+        survives1 = Fore.GREEN + thrower + " throws at " + victim + " and hits, but " + victim + " SURVIVES!"
+        survives2 = Fore.GREEN + thrower + " tries to hit " + victim + " ...and does! But the snowball bounces off and " + victim + " SURVIVES!"
+        survives3 = Fore.GREEN + thrower + " has perfect aim at " + victim + " and hits, but the snowball was too small and " + victim + " SURVIVES!"
+
+        surviveMessages = [survives1, survives2, survives3]
+
+
+        Out1 = Fore.RED + thrower + " throws and absolutely destroys " + victim + " - " + victim + " IS OUT OF THE GAME!"
+        Out2 = Fore.RED + thrower + " throws as hard as they can and hits " + victim + " - " + victim + " IS OUT OF THE GAME!"
+        Out3 = Fore.RED + thrower + " has great aim and perfectly hits " + victim + " - " + victim + " IS OUT OF THE GAME!"
+        
+        OutMessages = [Out1, Out2, Out3]
+
+        Miss1 = Fore.YELLOW + thrower + " throws at " + victim + " but has really bad aim and misses."
+        Miss2 = Fore.YELLOW + thrower + " throws at " + victim + " but barely misses."
+        Miss3 = Fore.YELLOW + thrower + " throws at " + victim + " but it goes way over their head."
+
+        MissMessages = [Miss1, Miss2, Miss3]
+
+
         if (hitResult == True):
             koResult = random.randint(1, 2)
             if (koResult == 1):
-                print(Fore.GREEN + thrower + " throws at " + victim + " and hits, but " + victim + " SURVIVES!")
+                print(random.choice(surviveMessages))
             else:
-                print(Fore.RED + thrower + " throws and absolutely destroys " + victim + " - " + victim + " IS OUT OF THE GAME!")
+                print(random.choice(OutMessages))
                 players.remove(victim)
         else:
-            print(Fore.YELLOW + thrower + " throws at " + victim + " but has really bad aim and misses.")
+            print(random.choice(MissMessages))
         time.sleep(3)
                 
 
@@ -142,7 +163,7 @@ def printOutro(winner):
     ' Return: none
     '''
     print("❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️")
-    print(Fore.LIGHTYELLOW_EX + "All hail " + winner + ", the Ultimate Student/Snowball Wizard!")
+    print(Fore.LIGHTCYAN_EX + "All hail " + winner + ", the Ultimate Student/Snowball Wizard!")
     print("❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️")
 
 
