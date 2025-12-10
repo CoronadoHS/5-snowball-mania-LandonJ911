@@ -8,6 +8,10 @@
 
 import random
 import time
+from colorama import init, Fore, Back, Style
+
+init()
+
 
 
 def printIntro():
@@ -19,7 +23,7 @@ def printIntro():
     ' Return: none
     '''
     print("❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️")
-    print("❄️  Welcome to Snowball Mania!❄️")
+    print(Fore.LIGHTCYAN_EX + "❄️  Welcome to Snowball Mania!❄️")
     print("❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️")
 
 
@@ -38,14 +42,14 @@ def getNames():
     ' 
     '''
     playerList = []
-    myName = input("What is your name? ")
+    myName = input(Fore.LIGHTCYAN_EX + "What is your name? ")
     playerList.append(myName)
-    print("Add other players (one at a time) by typing their names and hitting ENTER, type DONE when finished.")
+    print(Fore.LIGHTCYAN_EX + "Add other players (one at a time) by typing their names and hitting ENTER, type DONE when finished.")
     nextName = input()
     while (nextName != "DONE"):
         playerList.append(nextName)
         nextName = input()
-    print("Great - time to play!")
+    print(Fore.LIGHTCYAN_EX + "Great - time to play!")
     return playerList
 
 
@@ -118,12 +122,12 @@ def playSnowballFight(players):
         if (hitResult == True):
             koResult = random.randint(1, 2)
             if (koResult == 1):
-                print(thrower + " throws at " + victim + " and hits, but " + victim + " SURVIVES!")
+                print(Fore.GREEN + thrower + " throws at " + victim + " and hits, but " + victim + " SURVIVES!")
             else:
-                print(thrower + " throws and absolutely destroys " + victim + " - " + victim + " IS OUT OF THE GAME!")
+                print(Fore.RED + thrower + " throws and absolutely destroys " + victim + " - " + victim + " IS OUT OF THE GAME!")
                 players.remove(victim)
         else:
-            print(thrower + " throws at " + victim + " but has really bad aim and misses.")
+            print(Fore.YELLOW + thrower + " throws at " + victim + " but has really bad aim and misses.")
         time.sleep(3)
                 
 
@@ -138,7 +142,7 @@ def printOutro(winner):
     ' Return: none
     '''
     print("❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️")
-    print("All hail " + winner + ", the Ultimate Student/Snowball Wizard!")
+    print(Fore.LIGHTYELLOW_EX + "All hail " + winner + ", the Ultimate Student/Snowball Wizard!")
     print("❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️❄️")
 
 
